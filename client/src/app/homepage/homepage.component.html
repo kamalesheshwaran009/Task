@@ -1,0 +1,58 @@
+<!-- homepage.component.html -->
+<div class="homepage-container">
+  <div class="content-wrapper">
+    <div class="hero-content">
+      <h1>Hi, Welcome to Task Manager</h1>
+      <p>Streamline your workflow and boost productivity with our intuitive task management system.</p>
+
+      <div class="features">
+        <div class="feature-item">
+          <mat-icon>assignment</mat-icon>
+          <h3>Task Organization</h3>
+          <p>Organize and prioritize your tasks efficiently</p>
+        </div>
+        <div class="feature-item">
+          <mat-icon>access_time</mat-icon>
+          <h3>Time Management</h3>
+          <p>Track deadlines and manage your time effectively</p>
+        </div>
+        <div class="feature-item">
+          <mat-icon>trending_up</mat-icon>
+          <h3>Progress Tracking</h3>
+          <p>Monitor your progress and achievements</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-section">
+      <div class="auth-tabs">
+        <div class="tab-buttons">
+          <button
+            class="tab-button"
+            [class.active]="activeTab === 'register'"
+            (click)="activeTab = 'register'">
+            Register
+          </button>
+          <button
+            class="tab-button"
+            [class.active]="activeTab === 'login'"
+            (click)="activeTab = 'login'">
+            Login
+          </button>
+        </div>
+        <div class="tab-content">
+          <app-register
+            *ngIf="activeTab === 'register'"
+            [isEmbedded]="true"
+            (registrationComplete)="switchToLoginTab()">
+          </app-register>
+          <app-login
+            *ngIf="activeTab === 'login'"
+            [isEmbedded]="true">
+          </app-login>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

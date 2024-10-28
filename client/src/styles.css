@@ -1,0 +1,116 @@
+/* Global font and layout styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f4f4f4; /* Light background */
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Utility classes */
+.full-width {
+  width: 100%;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  color: #3f51b5;
+  margin: 0.5rem 0;
+}
+
+p {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Toolbar styling */
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3f51b5; /* Primary color */
+  color: #ffffff;
+  padding: 0 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-toolbar span {
+  font-weight: bold;
+}
+/* Buttons */
+button, .mat-raised-button {
+  margin-left: 15px;
+  background-color: #3f51b5;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #2e3b9f; /* Darker shade for hover effect */
+}
+
+button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Card styling */
+mat-card {
+  background-color: #ffffff; /* Light background */
+  color: #333333; /* Dark text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* Form fields */
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+.mat-form-field .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.6); /* Label color */
+}
+
+.mat-input-element {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Links */
+a {
+  color: #3f51b5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #2e3b9f;
+  text-decoration: underline;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .mat-toolbar {
+    padding: 0 0.5rem;
+  }
+
+  button, .mat-raised-button {
+    margin-left: 10px;
+  }
+
+  mat-card {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="tasks-container">
+  <h2>My Tasks</h2>
+
+  <div class="no-tasks" *ngIf="tasks.length === 0">
+    No tasks added yet. Click the + button to create your first task!
+  </div>
+
+  <ul *ngIf="tasks.length > 0">
+    <li *ngFor="let task of tasks"
+        [class.priority-high]="task.priority === 'high'"
+        [class.priority-medium]="task.priority === 'medium'"
+        [class.priority-low]="task.priority === 'low'"
+        (click)="openTaskDialog(task)">
+      <strong>{{task.title}}</strong>
+      <p>{{task.description}}</p>
+      <div class="task-metadata">
+        <span class="task-tag">{{task.category}}</span>
+        <span class="task-date">{{task.dueDate | date:'mediumDate'}}</span>
+      </div>
+    </li>
+  </ul>
+
+  <button mat-fab color="primary" (click)="openTaskDialog()"
+          aria-label="Add new task">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

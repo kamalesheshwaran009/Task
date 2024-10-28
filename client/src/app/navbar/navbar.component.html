@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Task Manager</span>
+
+  <span class="spacer"></span>
+
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="profileMenu">
+    <mat-icon>account_circle</mat-icon>
+    {{ username }}
+  </button>
+</mat-toolbar>

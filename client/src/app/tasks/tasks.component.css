@@ -1,0 +1,227 @@
+/* Container Styles */
+.tasks-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Header Styles */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #007bff, #00d2ff);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+/* Empty State Styles */
+.no-tasks {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #f8f9fa, #ffffff);
+  border-radius: 12px;
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.no-tasks:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+}
+
+/* Task List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Task Item Styles */
+li {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #007bff, #00d2ff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: #007bff;
+}
+
+li:hover::before {
+  opacity: 1;
+}
+
+/* Task Content Styles */
+li strong {
+  display: block;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding-left: 0.5rem;
+}
+
+li p {
+  color: #6c757d;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
+
+/* Task Metadata Styles */
+.task-metadata {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.task-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: #007bff;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.task-tag:hover {
+  background: rgba(0, 123, 255, 0.2);
+}
+
+.task-date {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-left: auto;
+}
+
+/* Priority Indicators */
+.priority-high {
+  border-left: 4px solid #dc3545;
+}
+
+.priority-medium {
+  border-left: 4px solid #ffc107;
+}
+
+.priority-low {
+  border-left: 4px solid #28a745;
+}
+
+/* Add Task Button Styles */
+button[mat-fab] {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: linear-gradient(45deg, #007bff, #00d2ff);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button[mat-fab]:hover {
+  transform: scale(1.1) rotate(180deg);
+  box-shadow: 0 6px 24px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tasks-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  button[mat-fab] {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Loading State Styles */
+.loading-tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-tasks mat-spinner {
+  margin: 2rem auto;
+}
+
+/* Animation Keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations */
+li {
+  animation: slideIn 0.3s ease-out forwards;
+}
