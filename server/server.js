@@ -20,7 +20,7 @@ app.use(helmet());
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://devendravenkatm.github.io/task-manager',
+  origin: process.env.FRONTEND_URL || 'http://localhost:4200',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
