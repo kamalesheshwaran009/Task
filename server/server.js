@@ -18,15 +18,16 @@ const app = express();
 // Security middleware
 app.use(helmet());
 
-
 // CORS configuration
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://devendravenkatm.github.io',
+  origin: process.env.FRONTEND_URL || 'https://devendravenkatm.github.io/task-manager',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
+// Enable CORS with the specified options
+app.use(cors(corsOptions));
 
 // Body parsing middleware
 app.use(json());
