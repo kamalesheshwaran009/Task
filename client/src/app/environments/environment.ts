@@ -1,4 +1,6 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5000/api' // Adjust based on your backend URL
+  production: process.env["NODE_ENV"] === 'production', // This will be `true` in production
+  apiUrl: process.env["NODE_ENV"] === 'production'
+    ? 'https://task-manager-3lqc.onrender.com/api'
+    : 'http://localhost:5000/api'
 };
